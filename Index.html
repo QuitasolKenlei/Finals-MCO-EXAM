@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+  <h2>Task Manager</h2>
+
+  <!-- Task Form -->
+  <form id="taskForm" action="add_task.php" method="POST">
+    <div class="form-group">
+      <input type="text" name="title" class="form-control" placeholder="Task Title" required>
+    </div>
+    <div class="form-group">
+      <textarea name="description" class="form-control" placeholder="Description"></textarea>
+    </div>
+    <div class="form-group">
+      <input type="date" name="due_date" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Task</button>
+  </form>
+
+  <hr>
+
+  
+  <form method="GET" class="form-inline mb-3">
+    <select name="status" class="form-control mr-2">
+      <option value="">All</option>
+      <option value="pending">Pending</option>
+      <option value="done">Done</option>
+    </select>
+    <select name="sort" class="form-control mr-2">
+      <option value="due_date">Due Date</option>
+      <option value="created_at">Created At</option>
+    </select>
+    <button type="submit" class="btn btn-secondary">Filter</button>
+  </form>
+
+  <!-- Tasks Table -->
+  <div id="taskList">
+    <?php include 'list_tasks.php'; ?>
+  </div>
+</div>
+</body>
+</html>
